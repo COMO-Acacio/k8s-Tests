@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: newapp-argo-application
+  name: guestbook-app
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/COMO-Acacio/k8s-Tests.git  # Must contains the GitHub repo in which the files are stored
-    targetRevision: HEAD
     path: Guestbook-PHP-Redis   # Subfolder (if applicable) on the GitHub repo
+    targetRevision: minikube
   destination:  
     server: https://kubernetes.default.svc
     namespace: guestbook    # This namespace shall be he same as the app namespace, for connection
